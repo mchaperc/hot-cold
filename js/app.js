@@ -1,4 +1,5 @@
-var num, count=0, userGuess;
+(function () {
+	var num, count=0, userGuess;
 
 $(document).ready(function(){
 	
@@ -106,3 +107,5 @@ function newGame() {
 
 // 	}
 // }
+
+}())
