@@ -26,12 +26,15 @@ $(document).ready(function(){
   	//Retrieve user's guess
   	$('form').submit(function() {
   		userGuess = parseInt(Number($('#userGuess').val()));
-  		guessValid(userGuess);
-  		count++
-  		checkGuess(userGuess);
-  		$('#count').text(count);
-  		$('#guessList').append('<li>' + userGuess + '</li>');
-  		$('#userGuess').val('');
+  		if(isNaN(userGuess)){
+  			$('#feedback').text('Please provide an integer between 1 and 100.');
+  		} else {
+	  		count++
+	  		checkGuess(userGuess);
+	  		$('#count').text(count);
+	  		$('#guessList').prepend('<li>' + userGuess + '</li><br>');
+	  		$('#userGuess').val('');
+  		}
   		event.preventDefault();
   	})
 });
@@ -90,8 +93,7 @@ function newGame() {
 //Check if input is valid number
 function guessValid(userGuess) {
 	if (isNaN(userGuess)) {
-		alert('yo');
-		$('#feedback').text('Please provide an integer between 1 and 100.')
+		$('#feedback').text('Please provide an integer between 1 and 100.');
 	}
 }
 
