@@ -25,14 +25,8 @@ $(document).ready(function(){
 
   	//Retrieve user's guess
   	$('form').submit(function() {
-  		lastGuess = userGuess;
-  		userGuess = parseInt($('#userGuess').val());
-  		// guessValid(userGuess);
-  		// if (count === 0) {
-  		// 	checkGuess(userGuess);
-  		// } else {
-  		// 	guessProgress(userGuess, lastGuess);
-  		// }
+  		userGuess = parseInt(Number($('#userGuess').val()));
+  		guessValid(userGuess);
   		count++
   		checkGuess(userGuess);
   		$('#count').text(count);
@@ -53,11 +47,11 @@ function checkGuess() {
 		} else if (userGuess - num < 10) {
 			$('#feedback').text("VERY HOT!");
 		} else if (userGuess - num < 20) {
-			$('#feedback').text("hot");
+			$('#feedback').text("Hot-ish");
 		} else if (userGuess - num < 30) {
-			$('#feedback').text("warm");
+			$('#feedback').text("Warm");
 		} else if (userGuess - num < 50) {
-			$('#feedback').text("cold");
+			$('#feedback').text("Cold");
 		} else {
 			$('#feedback').text("ICE COLD!");
 		}
@@ -67,11 +61,11 @@ function checkGuess() {
 		} else if (num - userGuess < 10) {
 			$('#feedback').text("VERY HOT!");
 		} else if (num - userGuess < 20) {
-			$('#feedback').text("hot");
+			$('#feedback').text("Hot-ish");
 		} else if (num - userGuess < 30) {
-			$('#feedback').text("warm");
+			$('#feedback').text("Warm");
 		} else if (num - userGuess < 50) {
-			$('#feedback').text("cold");
+			$('#feedback').text("Cold");
 		} else {
 			$('#feedback').text("ICE COLD!");
 		}
@@ -94,18 +88,11 @@ function newGame() {
 }
 
 //Check if input is valid number
-// function guessValid(userGuess) {
-// 	if (isNaN(userGuess)) {
-// 		$('#feedback').text('Please provide an integer between 1 and 100.')
-// 	}
-// }
-
-// function guessProgress(userGuess, lastGuess) {
-// 	if (userGuess > num) {
-// 		(userGuess )
-// 	} else {
-
-// 	}
-// }
+function guessValid(userGuess) {
+	if (isNaN(userGuess)) {
+		alert('yo');
+		$('#feedback').text('Please provide an integer between 1 and 100.')
+	}
+}
 
 }())
