@@ -28,6 +28,8 @@ $(document).ready(function(){
   		userGuess = parseInt(Number($('#userGuess').val()));
   		if(isNaN(userGuess)){
   			$('#feedback').text('Please provide an integer between 1 and 100.');
+  		} else if (userGuess > 100) {
+  			$('#feedback').text('Please provide an integer between 1 and 100.');
   		} else {
 	  		count++
 	  		checkGuess(userGuess);
